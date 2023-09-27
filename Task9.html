@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 9</title>
+    <style>
+        .box{
+            padding-left: 15px;
+            border: 1px solid black;
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    <br><br>
+    <div class="box">
+        <p>First Number: <input id="num1" type="number"></p>
+        <p>Second Number: <input id="num2" type="number"></p>
+        <button onclick="multiply()">Multiply</button>
+        <button onclick="divide()">Divide</button>
+        <h3 id="result"></h3>
+    </div>
+
+    <script>
+        function multiply(){
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const result = num1 * num2;
+            document.getElementById("result").textContent = `Multiplication Result: ${result}`;
+        }
+
+        function divide(){
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            if(num2==0){
+                document.getElementById("result").textContent = "Number cannot be divided by zero"
+            }
+            else{
+                const result = num1 / num2;
+                document.getElementById("result").textContent = `Division Result: ${result}`;
+
+            }
+        }
+    </script>
+</body>
+</html>

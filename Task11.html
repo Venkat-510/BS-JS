@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 11</title>
+    <style>
+        .error{
+            color: red;
+        }
+        input.error,textarea.error{
+            border : 1px solid red;  
+        }
+        .box{
+            border: 1px solid black;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 50px;
+            width: 32%;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <form class="box">
+            <table>
+                <tr>
+                    <td><label for="">Name: </label></td>
+                    <td><input type="text" id="name"></td>
+                    <td><span class="error" id="nameError"></span></td>
+                </tr>
+                <tr>
+                    <td><label for="">Email: </label></td>
+                    <td><input type="email" id="email"></td>
+                    <td><span class="error" id="emailError"></span></td>
+    
+                </tr>
+                <tr>
+                    <td><label for="">Website: </label></td>
+                    <td><input type="text" id="website"></td>
+                    <td><span class="error" id="websiteError"></span></td>
+    
+                </tr>
+                <tr>
+                    <td><label for="">Messege: </label></td>
+                    <td><textarea type="text" id="message"></textarea></td>
+                    <td><span class="error" id="messageError"></span></td>
+    
+                </tr>
+                <tr>
+                    <td colspan="2"><center><button type="button" onclick="validation()">Submit</button></center></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+
+    <script>
+        function validation(){
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('websiteError').textContent = '';
+            document.getElementById('messageError').textContent = '';
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var website = document.getElementById('website').value;
+            var message = document.getElementById('message').value;
+
+            if(name == ''){
+                document.getElementById('nameError').textContent = 'Name is required';
+            }
+            if(email ==''){
+                document.getElementById('emailError').textContent = 'Email is required';
+            }else if(!isValidEmail(email)){
+                document.getElementById('emailError').textContent = 'A valid Email address is required';   
+            }
+            if(website ==''){
+                document.getElementById('websiteError').textContent = 'Website is required';
+            }else if(!isValidURL(website)){
+                document.getElementById('websiteError').textContent = 'A valid url is required';
+            }
+            if(message ==''){
+                document.getElementById('messageError').textContent = 'Message is required';
+            }
+        }
+        function isValidEmail(email){
+            var emailCheck = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+            return emailCheck.test(email);
+        }
+        function isValidURL(url){
+            var urlCheck = /^(http(s)?:\/\/)?(www\.)?[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
+            return urlCheck.test(url);
+        }
+    </script>
+</body>
+</html>

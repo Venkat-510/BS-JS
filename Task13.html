@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 13</title>
+    <style>
+        #myImage {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <img id="myImage" src="./train.gif" alt="Train" />
+        <p style="color: blue; font-size: large;">Click the buttons below to handle animation</p>
+        <input type="button" value="Start" onclick="moveRight();" />
+        <input type="button" value="Stop" onclick="stop();" />
+    </form>
+
+    <script>
+        let imgObj = null;
+        let animate;
+
+        function init() {
+            imgObj = document.getElementById('myImage');
+            imgObj.style.left = '0px';
+        }
+
+        function moveRight() {
+            const currentPosition = parseInt(imgObj.style.left) || 0;
+            if (currentPosition < window.innerWidth - imgObj.width) {
+                imgObj.style.left = currentPosition + 10 + 'px';
+                animate = setTimeout(moveRight, 50);
+            } else {
+                imgObj.style.left = '0px'; // Reset to the left corner
+                moveRight(); // Start again from the left corner
+            }
+        }
+
+        function stop() {
+            clearTimeout(animate);
+            imgObj.style.left = '0px';
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>

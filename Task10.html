@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 10</title>
+</head>
+<body>
+    <br>
+    <button onclick="showDate()">Show Date</button><br><br>
+    <h3 id="showDate"></h3>
+    <button onclick="showTime()">Show TIme</button>
+    <h3 id="showTime"></h3>
+
+    <script>
+        function showDate(){
+            const currentDate = new Date();
+            const formattedDate = currentDate.toDateString();
+            document.getElementById("showDate").textContent = formattedDate;
+        }
+        function showTime(){
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleTimeString();
+            document.getElementById("showTime").textContent = formattedDate;
+        }
+    </script>
+</body>
+</html>
